@@ -1,0 +1,6 @@
+<div>
+    alo
+    alo
+    <p *ngFor="let item of chaves"> {{ item.nome }}</p>
+</div>
+<app-botao [label]="'Pesquisar'" (onclick)="listarChavesDisponiveis()"></app-botao>
