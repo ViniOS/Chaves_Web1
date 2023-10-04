@@ -1,6 +1,11 @@
 <div>
-    alo
-    alo
-    <p *ngFor="let item of chaves"> {{ item.nome }}</p>
+    <p *ngFor="let item of chaves"> 
+        
+        {{ item.id }}
+        {{ item.nome }}
+        {{ item.situacao }}
+        {{ item.status }}
+        
+    </p>
 </div>
-<app-botao [label]="'Pesquisar'" (onclick)="listarChavesDisponiveis()"></app-botao>
+<app-botao [label]="'Pesquisar'" (click)="listarChavesDisponiveis()"></app-botao>
