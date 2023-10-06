@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { ChaveService } from '../../services/chave-service.service';
-import { Chaves } from 'src/app/models/chaves/chaves';
+import { Chave } from 'src/app/models/chave';
 import { BotaoComponent } from '../botao/botao.component';
+import { Chaves } from 'src/app/models/chaves';
+
+
 @Component({
   selector: 'app-busca-chaves',
   templateUrl: './busca-chaves.component.html',
@@ -22,7 +25,6 @@ export class BuscaChavesComponent {
       (response: any) => {
         response.chaves.forEach((item: any) => {
           this.chave = {
-            id: item[0],
             nome: item[1],
             situacao: item[2],
             status: item[3],
