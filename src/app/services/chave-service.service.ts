@@ -14,22 +14,18 @@ export class ChaveService {
 
   constructor(private http: HttpClient) { }
 
-  // listarChavesDisponiveis(): Observable<Chave[]> {
-  //   return this.http.get<Chave[]>(`${this.apiUrl}/chaves_disp`);
-  // }
-
-  listarChavesDisponiveis(): Observable<Chaves[]> {
-    return this.http.get<{chaves: Chave[]}>(`${this.apiUrl}/chaves_disp`).pipe(
+  listarChavesDisponiveis(): Observable<any[]> {
+    return this.http.get<{chaves: any[]}>(`${this.apiUrl}/chaves_disp`).pipe(
       map(response => response.chaves.map(item => ({
-        nome: item.nome,
-        situacao: item.situacao,
-        status: item.status,
-      } as Chaves)))
+        nome: item[1],
+        situacao: item[2],
+        status: item[3],
+      })))
     );
   }
   
   enviarDados(dados: Chaves): Observable<any> {
-    return this.http.post(`${this.apiUrl}/caminho/para/sua/api`, dados);
+    return this.http.post(`${this.apiUrl}/chaves`, dados);
   }
 
 }

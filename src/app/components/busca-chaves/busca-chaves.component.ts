@@ -12,7 +12,6 @@ import { Chaves } from 'src/app/models/chaves';
 })
 export class BuscaChavesComponent {
   chaves: Chaves [] = []; 
-  chave: Chaves = new Chaves();
 
   constructor(private chaveService: ChaveService) {}
 
@@ -42,6 +41,8 @@ export class BuscaChavesComponent {
   listarChavesDisponiveis() {
     this.chaveService.listarChavesDisponiveis().subscribe(
       (chaves: Chaves[]) => {
+        console.log(chaves);
+        
         this.chaves = chaves;
         console.log(this.chaves);
       },

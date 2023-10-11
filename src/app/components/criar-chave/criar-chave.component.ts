@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ChaveService } from 'src/app/services/chave-service.service';
-import { Chave } from 'src/app/models/chave';
-import { Chaves } from 'src/app/models/chaves';
 
 @Component({
   selector: 'app-criar-chave',
@@ -30,10 +28,10 @@ export class CriarChaveComponent {
         .subscribe(res => {
           console.log(res);
           this.form_criaChave.reset()
-          // Aqui você pode adicionar código para lidar com a resposta da sua API
+          
         }, err => {
           console.error(err);
-          // Aqui você pode adicionar código para lidar com erros
+          
         }
       );
     } else {
