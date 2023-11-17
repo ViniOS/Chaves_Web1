@@ -1,6 +1,5 @@
 export interface Chave {
-    id: String | undefined | null,
-    nome: String | undefined | null,
-    situacao: String | undefined | null, 
-    status: String | undefined | null
+    nome: string | undefined | null,
+    situacao: string | undefined | null, 
+    status: string | undefined | null
 }

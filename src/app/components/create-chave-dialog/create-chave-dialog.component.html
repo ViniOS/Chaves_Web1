@@ -1,0 +1,6 @@
+<form action="" [formGroup]="form_criaChave" class="flex flex-col items-center gap-4 p-4">
+    <input type="text" placeholder="Nome" class="input w-full max-w-xs" formControlName="nome"/>
+    <input type="text" placeholder="Situação" class="input w-full max-w-xs" formControlName="situacao"/>
+    <input type="text" placeholder="Status" class="input w-full max-w-xs" formControlName="status"/>
+    <app-botao (click)="onSubmit($event)" [label]="'Enviar'"></app-botao>
+</form>

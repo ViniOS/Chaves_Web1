@@ -1,9 +1,9 @@
 .grid-container{
     display: grid;
     grid-template-areas:
-        'bt1 bt2 bt3'
-        'bt5 tbl tbl'
-        'bt6 tbl tbl';
+        'bt1 bt2 bt4 '
+        'bt5 tbl tbl '
+        'bt3 tbl tbl ';
     gap: 10px;
     background-color: #ffffff;
     padding: 10px;
@@ -22,11 +22,11 @@
 }
 
 .item4{
-    grid-area: bt5;
+    grid-area: bt4;
 }
 
 .item5{
-    grid-area: bt6;
+    grid-area: bt5
 }
 
 .item6{
