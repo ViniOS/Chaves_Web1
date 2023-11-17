@@ -12,6 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CreateChaveDialogComponent } from './components/create-chave-dialog/create-chave-dialog.component';
 import { SearchChavesDialogComponent } from './components/search-chaves-dialog/search-chaves-dialog.component';
 import {MatTableModule} from '@angular/material/table';
+import { EditChaveDialogComponent } from './components/edit-chave-dialog/edit-chave-dialog.component';
 
 
 
@@ -25,7 +26,8 @@ import {MatTableModule} from '@angular/material/table';
     CriarChaveComponent,
     DeleteChaveDialogComponent,
     CreateChaveDialogComponent,
-    SearchChavesDialogComponent
+    SearchChavesDialogComponent,
+    EditChaveDialogComponent
   ],
   imports: [
     BrowserModule,

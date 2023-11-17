@@ -4,6 +4,7 @@ import { DeleteChaveDialogComponent } from './components/delete-chave-dialog/del
 import { CreateChaveDialogComponent } from './components/create-chave-dialog/create-chave-dialog.component';
 import { SearchChavesDialogComponent } from './components/search-chaves-dialog/search-chaves-dialog.component';
 import { Chave } from './models/chave';
+import { EditChaveDialogComponent } from './components/edit-chave-dialog/edit-chave-dialog.component';
 
 
 @Component({
@@ -36,6 +37,14 @@ export class AppComponent {
 
   openCadastrar(){
     this.dialog.open(CreateChaveDialogComponent, {
+      width:'330px',
+      hasBackdrop: true,
+      disableClose: false
+    });
+  }
+
+  openEdit(){
+    this.dialog.open(EditChaveDialogComponent, {
       width:'330px',
       hasBackdrop: true,
       disableClose: false
