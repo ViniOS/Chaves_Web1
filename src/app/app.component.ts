@@ -5,6 +5,7 @@ import { CreateChaveDialogComponent } from './components/create-chave-dialog/cre
 import { SearchChavesDialogComponent } from './components/search-chaves-dialog/search-chaves-dialog.component';
 import { Chave } from './models/chave';
 import { EditChaveDialogComponent } from './components/edit-chave-dialog/edit-chave-dialog.component';
+import { ChaveService } from './services/chave-service.service';
 
 
 @Component({
@@ -14,14 +15,11 @@ import { EditChaveDialogComponent } from './components/edit-chave-dialog/edit-ch
 })
 export class AppComponent {
 
-  Chaves: Chave[] = [{
-    nome:'302',
-    situacao: 'fudida',
-    status: 'fulano'
-  }]
+  Chaves: Chave[] = []
   displayedColumns: String[] = ['nome', 'situacao', 'status']
 
-  constructor(public dialog: MatDialog){}
+  constructor(public dialog: MatDialog,
+      	      public chaveService: ChaveService){}
 
   openExcluir() {
     const dialogRef = this.dialog.open(DeleteChaveDialogComponent, {
@@ -59,7 +57,22 @@ export class AppComponent {
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.Chaves = []
+      this.Chaves.push(result)
     });
+  }
+
+  listarChavesDisponiveis() {
+    this.chaveService.listarChavesDisponiveis().subscribe(
+      (chaves: Chave[]) => {
+        console.log(chaves);
+        
+        this.Chaves = chaves;
+        console.log(this.Chaves);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 }

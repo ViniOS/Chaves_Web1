@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ChaveService } from 'src/app/services/chave-service.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class CreateChaveDialogComponent {
     });
   }
 
-  constructor(private chaveService: ChaveService) {}
+  constructor(private chaveService: ChaveService,
+              private _snackBar: MatSnackBar) {}
 
   onSubmit(e: Event) {
     console.log(this.form_criaChave.value);
@@ -27,10 +29,11 @@ export class CreateChaveDialogComponent {
       this.chaveService.enviarDados(this.form_criaChave.value)
         .subscribe(res => {
           console.log(res);
+          this._snackBar.open(`${res.message}`, 'X', {duration: 5000, verticalPosition: 'top', horizontalPosition: 'center'})
           this.form_criaChave.reset()
           
         }, err => {
-          console.error(err);
+          this._snackBar.open(`${err}`, 'X', {duration: 5000, verticalPosition: 'top', horizontalPosition: 'center'})
           
         }
       );
