@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { Chave } from '../models/chave';
 import { Chaves } from '../models/chaves';
+import { ApiResponse } from '../models/apiResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -49,8 +50,8 @@ export class ChaveService {
     return this.http.put(`${this.apiUrl}/chaves/${dados.nome}`, dados);
   }
 
-  desabilitarDados(dados: Chaves){
-    return this.http.put(`${this.apiUrl}/chaves/${dados.id}`, dados.id);
+  desabilitarDados(nomeChave: string){
+    return this.http.delete<ApiResponse>(`${this.apiUrl}/chaves/${nomeChave}` , {observe: 'response'});
   }
 
 }
