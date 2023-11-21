@@ -4,10 +4,7 @@ import { Chave } from 'src/app/models/chave';
 import { ChaveService } from 'src/app/services/chave-service.service';
 import { SearchChavesDialogComponent } from '../search-chaves-dialog/search-chaves-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-interface ApiResponse{
-  message: string
-}
+import { ApiResponse } from 'src/app/models/apiResponse';
 
 
 @Component({
